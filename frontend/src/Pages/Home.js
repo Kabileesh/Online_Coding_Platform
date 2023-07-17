@@ -42,15 +42,15 @@ const HomePage = (props) => {
         );
         break;
       case "rust":
-        setCode(
-          `fn main(){\n\tprintln!("Hello World");\n}`
-        );
+        setCode(`fn main(){\n\tprintln!("Hello World");\n}`);
         break;
       case "python":
         setCode(`print("Hello World")`);
         break;
       case "Go":
-        setCode(`package main\n\nimport "fmt";\n\nfunc main(){\n\tfmt.Println("Hello World")\n}`);
+        setCode(
+          `package main\n\nimport "fmt";\n\nfunc main(){\n\tfmt.Println("Hello World")\n}`
+        );
         break;
       case "ruby":
         setCode(`puts "Hello World"`);
@@ -67,15 +67,22 @@ const HomePage = (props) => {
       language,
       runtimeInput: input,
     };
-    const response = await axios.post("/execute", codeDetails);
-    if (response?.status === 200) {
-      setOutput(response?.data.output);
-      setCodeStatus(response?.data.status);
-      setLoading(false);
-    } else {
-      setOutput("Error while executing code! Please try again in few seconds");
-      setCodeStatus("Failed");
-      setLoading(false);
+    try {
+      const response = await axios.post("/execute", codeDetails);
+      if (response?.status === 200) {
+        setOutput(response?.data.output);
+        setCodeStatus(response?.data.status);
+        setLoading(false);
+      } else {
+        setOutput(
+          "Error while executing code! Please try again in few seconds"
+        );
+        setCodeStatus("Failed");
+        setLoading(false);
+      }
+    } catch (err) {
+      console.log(err);
+      console.log("resp");
     }
   };
 
@@ -91,7 +98,7 @@ const HomePage = (props) => {
     if (response?.status === 200) {
       toast.success("Successfully Saved", { autoClose: 3000 });
     } else {
-      toast.error("Error in saving! Please try again", {autoClose: 3000});
+      toast.error("Error in saving! Please try again", { autoClose: 3000 });
       console.log("Error in code submission");
     }
   };

@@ -44,6 +44,9 @@ const Submission = (props) => {
       } else {
         navigate("/login");
       }
+    }).catch((err) => {
+      console.log(err);
+      console.log("Hi123");
     });
   }, []);
 

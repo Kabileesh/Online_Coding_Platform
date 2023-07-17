@@ -53,7 +53,7 @@ const LoginForm = () => {
         console.log(response.status);
       }
     } catch (err) {
-      console.log(err);
+      console.log("err1");
     }
   };
 
@@ -89,10 +89,10 @@ const LoginForm = () => {
         sessionStorage.setItem("accessToken", accessToken);
         navigate("/code");
       } else {
-        console.error(response.status);
+        console.error(response?.status);
       }
     } catch (err) {
-      console.log(err);
+      console.log("err");
     }
   };
 

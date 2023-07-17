@@ -57,6 +57,9 @@ const SubmittedCode = () => {
         navigate("/login");
       }
       setLoading(false);
+    }).catch((err) => {
+      console.log(err);
+      console.log("hi456");
     });
   }, []);
 
