@@ -14,12 +14,12 @@ const generateDockerfileContent = (language, code) => {
     dockerfileContent += `RUN chmod +x /temp/code.${language}\n`;
     dockerfileContent += `CMD ["sh", "-c", "ulimit -t 5 && ulimit -m 512000 && g++ /temp/code.cpp -o /temp/code.out && /temp/code.out"]\n`;
   } else if (language === "rust") {
-    dockerfileContent += `FROM rust:latest\n\n`;
+    dockerfileContent += `FROM rustc:latest\n\n`;
     dockerfileContent += `WORKDIR /temp\n`;
     dockerfileContent += `COPY code.rs /temp/code.rs\n`;
     dockerfileContent += `CMD ["sh", "-c", "ulimit -t 5 && ulimit -m 512000 && rustc /temp/code.rs -o /temp/code && /temp/code"]\n`;
   } else if (language === "python") {
-    dockerfileContent += `FROM python:latest\n\n`;
+    dockerfileContent += `FROM python3:latest\n\n`;
     dockerfileContent += `WORKDIR /temp\n`;
     dockerfileContent += `COPY code.py /temp/code.py\n`;
     dockerfileContent += `RUN chmod +x /temp/code.py\n`;
