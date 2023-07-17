@@ -15,7 +15,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "*",
+    origin: ["*", "https://gilded-kleicha-f8ced8.netlify.app/"],
   })
 );
 
