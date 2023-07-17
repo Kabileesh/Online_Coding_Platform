@@ -10,14 +10,14 @@ credentials(passport);
 
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.json());
-
 app.use(
   cors({
     origin: ["*", "https://gilded-kleicha-f8ced8.netlify.app/"],
   })
 );
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.use(router);
 
