@@ -3,9 +3,7 @@ const { promisify } = require("util");
 const fs = require("fs");
 const generateDockerfileContent = require("../other/dockerFileContent");
 const getExecutionCommand = require("../other/executionCommand");
-const { exec } = require('child_process');
-
-const docker = new Docker({ socketPath: 'tcp://0.0.0.0:2375' });
+const docker = new Docker();
 
 const writeFileAsync = promisify(fs.writeFile);
 const unlinkFileAsync = promisify(fs.unlink);

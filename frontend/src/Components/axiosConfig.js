@@ -1,6 +1,6 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "https://lazy-gray-shark-boot.cyclic.app";
+axios.defaults.baseURL = "https://programx-omgf.onrender.com";
 
 axios.interceptors.request.use(function (config) {
   const accessToken = sessionStorage.getItem("accessToken");

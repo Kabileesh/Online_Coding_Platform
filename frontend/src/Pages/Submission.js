@@ -46,7 +46,6 @@ const Submission = (props) => {
       }
     }).catch((err) => {
       console.log(err);
-      console.log("Hi123");
     });
   }, []);
 

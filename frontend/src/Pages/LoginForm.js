@@ -92,7 +92,7 @@ const LoginForm = () => {
         console.error(response?.status);
       }
     } catch (err) {
-      console.log("err");
+      console.log(err);
     }
   };
 
