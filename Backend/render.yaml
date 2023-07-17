@@ -1,0 +1,7 @@
+version: 1
+services:
+  - name: online_code_app
+    dockerfilePath: Dockerfile
+    envVars:
+      - key: "DOCKER_HOST"
+        value: "unix:///var/run/docker.sock"

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "https://programz.onrender.com";
+axios.defaults.baseURL = "https://programx-omgf.onrender.com";
 
 axios.interceptors.request.use(function (config) {
   const accessToken = sessionStorage.getItem("accessToken");
