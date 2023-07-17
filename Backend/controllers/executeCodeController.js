@@ -5,7 +5,7 @@ const generateDockerfileContent = require("../other/dockerFileContent");
 const getExecutionCommand = require("../other/executionCommand");
 const { exec } = require('child_process');
 
-const docker = new Docker();
+const docker = new Docker({ socketPath: '//./pipe/docker_engine' });
 
 const writeFileAsync = promisify(fs.writeFile);
 const unlinkFileAsync = promisify(fs.unlink);
