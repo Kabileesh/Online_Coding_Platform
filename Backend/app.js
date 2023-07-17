@@ -24,7 +24,7 @@ app.use(router);
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
-    app.listen(process.env.HOST_PORT || 8080, () => {
+    app.listen(8080, () => {
       console.log("Server started and db connected");
     });
   })
