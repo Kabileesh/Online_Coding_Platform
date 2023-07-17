@@ -1,0 +1,28 @@
+.code-select {
+  width: 150px;
+  height: 30px;
+  padding: 2px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 2px solid #ccc;
+  background-color: rgb(222, 222, 222);
+  color: black;
+  margin-left: 2%;
+}
+
+.code-select option {
+  font-size: 14px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  height: 50px;
+  text-align: center;
+  color: #afec3f;
+  background-color: #474747;
+  gap: 20px;
+}
+
+

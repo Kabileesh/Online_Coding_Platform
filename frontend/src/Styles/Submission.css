@@ -1,0 +1,47 @@
+.dark-theme {
+  background-color: rgb(39, 39, 39);
+  min-height: 106vh;
+  max-height: 150vh;
+  margin-top: -3%;
+}
+
+.title {
+  color: black;
+}
+
+.back{
+  color: yellow;
+  font-size: larger;
+  margin-left: 4rem;
+}
+
+.back:hover {
+  color: yellowgreen;
+}
+
+.btn-view {
+  width: 20%;
+  margin-left: 30%;
+  background-color: rgba(3, 193, 0, 0.908);
+  width: fit-content;
+}
+
+.btn-view:hover {
+  background-color: rgba(52, 104, 51, 0.908);
+}
+
+.link {
+  color: black;
+  font-size: medium;
+  padding: 1rem;
+}
+
+.link:hover {
+  color: black;
+}
+
+.icon {
+  padding-top: 5%;
+  text-align: right;
+  padding-right: 5%;
+}
