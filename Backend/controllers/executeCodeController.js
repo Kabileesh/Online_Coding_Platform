@@ -3,6 +3,7 @@ const { promisify } = require("util");
 const fs = require("fs");
 const generateDockerfileContent = require("../other/dockerFileContent");
 const getExecutionCommand = require("../other/executionCommand");
+const { exec } = require('child_process');
 
 const docker = new Docker();
 
@@ -20,6 +21,24 @@ const sanitizeCode = (code) => {
   );
   return sanitizedCode;
 };
+
+function getDockerVersion() {
+  return new Promise((resolve, reject) => {
+    exec('docker --version', (error, stdout, stderr) => {
+      if (error) {
+        reject(error);
+        return;
+      }
+      const versionOutput = stdout.trim();
+      const versionMatch = versionOutput.match(/Docker version (\d+\.\d+\.\d+)/);
+      if (versionMatch && versionMatch[1]) {
+        resolve(versionMatch[1]);
+      } else {
+        reject(new Error('Docker version not found'));
+      }
+    });
+  });
+}
 
 const getExecutionStatus = (resultInfo, output) => {
   if (resultInfo.State.ExitCode === 0 && output.includes("Runtime Error")) {
@@ -70,6 +89,8 @@ const executeCode = async (req, res) => {
     await writeFileAsync(dockerfilePath, dockerfileContent);
 
     const imageName = `code-execution-image:${language}`;
+
+    console.log(getDockerVersion());
 
     const image = await docker.buildImage(
       {
