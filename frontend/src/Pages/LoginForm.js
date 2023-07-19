@@ -100,7 +100,7 @@ const LoginForm = () => {
   return (
     <div className="dark-theme">
       <div className="login-form-container">
-        <h3>Judge0 Online IDE</h3>
+        <h3>ProgramX Online IDE</h3>
         <MDBTabs pills justify className="mb-3">
           <MDBTabsItem>
             <MDBTabsLink
